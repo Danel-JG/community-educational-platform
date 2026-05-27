@@ -40,7 +40,7 @@ resource "aws_security_group" "moodle_sg" {
 
 resource "aws_instance" "moodle_server" {
   ami                    = "ami-0fc5d935ebf8bc3bc"
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.moodle_sg.id]
 
   tags = {
