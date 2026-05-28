@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: mariadb:10.6
+    container_name: chamilo-db
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: chamilo
+      MYSQL_USER: chamilo
+      MYSQL_PASSWORD: chamilopassword
+
+    volumes:
+      - db_data:/var/lib/mysql
+
+  web:
+    image: php:8.2-apache
+    container_name: chamilo-web
+    restart: always
+
+    ports:
+      - "80:80"
+
+    depends_on:
+      - db
+
+    command: >
+      bash -c "
+      apt update &&
+      docker-php-ext-install mysqli &&
+      apache2-foreground
+      "
+
+volumes:
+  db_data:

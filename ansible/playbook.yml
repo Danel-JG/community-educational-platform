@@ -1,0 +1,44 @@
+---
+- name: Configure Moodle Server
+  hosts: moodle
+  become: true
+  gather_facts: false
+
+  tasks:
+
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Install Docker Compose
+      apt:
+        name: docker-compose
+        state: present
+
+    - name: Start Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Create project directory
+      file:
+        path: /home/ubuntu/moodle
+        state: directory
+
+    - name: Copy Docker Compose file
+      copy:
+        src: ../docker/docker-compose.yml
+        dest: /home/ubuntu/moodle/docker-compose.yml
+
+    - name: Run Moodle containers
+      shell: docker-compose up -d
+      args:
+        chdir: /home/ubuntu/moodle
+      async: 600
+      poll: 10
