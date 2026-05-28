@@ -36,8 +36,13 @@
         src: ../docker/docker-compose.yml
         dest: /home/ubuntu/moodle/docker-compose.yml
 
+    - name: Copy website files
+      copy:
+        src: ../docker/website/
+        dest: /home/ubuntu/moodle/website/
+
     - name: Run Moodle containers
-      shell: docker-compose up -d
+      shell: docker-compose up -d --force-recreate
       args:
         chdir: /home/ubuntu/moodle
       async: 600
