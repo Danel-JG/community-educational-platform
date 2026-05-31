@@ -1,6 +1,14 @@
+# SSH Keys
+keys/*
 *.pem
-.env
-terraform.tfvars
+
+# Terraform
 .terraform/
 *.tfstate
 *.tfstate.backup
+
+# Ansible
+*.retry
+
+# Docker
+.env
