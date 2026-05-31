@@ -1,27 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Plataforma educativa local</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Educational Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-    <h1>Plataforma educativa local</h1>
 
-    <p>Educational services deployed with:</p>
+<header>
+    <h1>Community Educational Platform</h1>
+    <p>Educational services for local and community networks</p>
+</header>
 
-    <ul>
-        <li>AWS EC2</li>
-        <li>Terraform</li>
-        <li>Ansible</li>
-        <li>Docker</li>
-        <li>Linux</li>
-    </ul>
+<nav>
+    <a href="#">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#resources">Resources</a>
+    <a href="#community">Community</a>
+</nav>
 
-    <h2>Project Goals</h2>
+<div class="container">
 
-    <p>
-        Local educational infrastructure accessible from community networks.
-    </p>
+    <div class="card">
+        <h2>About the Platform</h2>
+        <p>
+            This educational platform was designed to provide access to learning
+            resources in both cloud and community network environments.
+        </p>
+    </div>
+
+    <div class="card" id="courses">
+        <h2>Courses</h2>
+
+        <ul>
+            <li>Linux Fundamentals</li>
+            <li>Introduction to Networking</li>
+            <li>Docker and Containers</li>
+            <li>AWS Cloud Basics</li>
+            <li>Infrastructure as Code</li>
+        </ul>
+    </div>
+
+    <div class="card" id="resources">
+        <h2>Educational Resources</h2>
+
+        <p>
+            Students can access guides, tutorials, documentation,
+            and technical learning materials from local infrastructure.
+        </p>
+    </div>
+
+    <div class="card" id="community">
+        <h2>Community Network Vision</h2>
+
+        <p>
+            This project is designed to support educational access in
+            community mesh networks using OpenWrt-based infrastructure.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>Community Educational Platform - DevOps Final Project</p>
+</footer>
 
 </body>
 </html>
