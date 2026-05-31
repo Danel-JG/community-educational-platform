@@ -42,7 +42,7 @@
         dest: /home/ubuntu/moodle/website/
 
     - name: Run Moodle containers
-      shell: docker-compose up -d --force-recreate
+      shell: docker-compose up -d
       args:
         chdir: /home/ubuntu/moodle
       async: 600
